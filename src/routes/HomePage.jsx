@@ -7,7 +7,9 @@ function HomePage() {
       <div className="section-bg">
         <nav>
           <div className="navbar">
-            <img src="/logo.png" alt="Flame Yoga Club" />
+            <Link to="/">
+              <img src="/logo.png" alt="Flame Yoga Club" />
+            </Link>
             <div className="links-container">
               <Link to="/">Home</Link>
               <Link to="/team">Our Team</Link>
@@ -44,9 +46,9 @@ function HomePage() {
               dedicated to guide you on your yoga journey.
             </p>
           </div>
-          <a href="" className="more-btn">
+          <Link to="/team" className="more-btn">
             Know More
-          </a>
+          </Link>
         </div>
       </div>
       <div className="section-4">
@@ -60,9 +62,9 @@ function HomePage() {
               and welcoming space.
             </p>
           </div>
-          <a href="" className="more-btn">
+          <Link to="/events" className="more-btn">
             Know More
-          </a>
+          </Link>
         </div>
       </div>
       <footer>
@@ -72,10 +74,7 @@ function HomePage() {
           <a href=""> yogaclub@flame.edu.in</a>
         </span>
         <span className="social-footer">
-          <a
-            href="https://www.instagram.com/flameyogaclub?igsh=anA1Z2g4MTU3aDl0"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/flameyogaclub" target="_blank">
             <img src="/Instagram-icon.png" alt="insta-flame-yoga-club" />
           </a>
         </span>
