@@ -2,7 +2,7 @@
 
 main {
   .section-bg {
-    background-image: url(public/homepage-bg.png);
+    background-image: url(/homepage-bg.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,7 +10,7 @@ main {
     width: 100%;
 
     h1 {
-      margin: 10rem 0 0 5rem;
+      margin: 10rem 0 0 7rem;
       font-size: 8rem;
       font-weight: 800;
       width: 42rem;

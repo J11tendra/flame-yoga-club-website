@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./homepage.scss";
 
 function HomePage() {
@@ -6,11 +7,11 @@ function HomePage() {
       <div className="section-bg">
         <nav>
           <div className="navbar">
-            <img src="public/logo.png" alt="Flame Yoga Club" />
+            <img src="/logo.png" alt="Flame Yoga Club" />
             <div className="links-container">
-              <a href="">Home</a>
-              <a href="">Our Team</a>
-              <a href="">Events</a>
+              <Link to="/">Home</Link>
+              <Link to="/team">Our Team</Link>
+              <Link to="/events">Events</Link>
             </div>
             <a
               className="social"
@@ -34,7 +35,7 @@ function HomePage() {
         </p>
       </div>
       <div className="section-3">
-        <img src="public/team.png" alt="team" />
+        <img src="/team.png" alt="team" />
         <div className="txt-container">
           <div className="wrapper">
             <h3>Meet Our Team</h3>
@@ -49,7 +50,7 @@ function HomePage() {
         </div>
       </div>
       <div className="section-4">
-        <img src="public/upcoming-events.png" alt="events" />
+        <img src="/upcoming-events.png" alt="events" />
         <div className="txt-container">
           <div className="wrapper">
             <h3>Our Upcoming Events</h3>
@@ -75,7 +76,7 @@ function HomePage() {
             href="https://www.instagram.com/flameyogaclub?igsh=anA1Z2g4MTU3aDl0"
             target="_blank"
           >
-            <img src="public/Instagram-icon.png" alt="insta-flame-yoga-club" />
+            <img src="/Instagram-icon.png" alt="insta-flame-yoga-club" />
           </a>
         </span>
       </footer>
