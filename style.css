@@ -1,0 +1,724 @@
+/*
+Theme Name: YogMantra
+Theme URI: 
+Author: 
+Author URI: 
+Description: YogMantra is specially designed product packaged for YogMantra by TemplatesJungle.
+Version: 
+*/
+
+/*--------------------------------------------------------------
+This is main CSS file that contains custom style rules used in this template
+--------------------------------------------------------------*/
+
+    
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+:root {
+  --accent-color:             #726475;
+  --black-color:              #000;
+  --dark-color:               #02140E;  
+  --gray-color-100:           #F9F9F9;
+  --gray-color-200:           #E1E1E1;
+  --gray-color-300:           #D8D8D8;
+  --gray-color-400:           #ced4da;
+  --gray-color-500:           #adb5bd;
+  --dark-gray-color:          #474341;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --light-color:              #fff;
+  --bs-light-rgb:             rgba(255,255,255,1);
+  --primary-color:            #C573D2;
+  --secondary-color:          #726475;  
+  --swiper-theme-color:       #807E7C !important;  
+
+}
+
+
+/* on mobile devices below 600px
+ */
+@media screen and (max-width: 600px) {
+    :root {
+        --header-height : 100px;
+        --header-height-min   : 80px;
+    }
+}
+
+/* Fonts */
+:root {
+    --body-font           : "Jost", sans-serif;
+    --heading-font        : "Marcellus", serif;
+}
+
+
+/*----------------------------------------------*/
+/* 2 GENERAL TYPOGRAPHY */
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+/*----------------------------------------------*/
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  /* font-family: var(--body-font); */
+  font-family: "Roboto", sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--accent-color);
+  margin: 0;
+}
+ul.inner-list li {
+   font-size: 1.2em;
+   color: var(--dark-gray-color);
+}
+a {
+  color: var(--dark-gray-colo);
+  text-decoration: none;
+  transition: 0.3s color ease-out;
+}
+a.light {
+  color: var(--light-color);
+}
+a.stretched-link {
+  color: var(--primary-color);
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+p.light {
+  color: var(--light-color);
+}
+ul.light li {
+  color: var(--light-color);
+}
+span.light {
+  color: var(--light-color);
+}
+svg.light {
+  color: var(--light-color);
+}
+svg.light:hover {
+  color: var(--primary-color);
+}
+table.light tr {
+   color: var(--light-color);
+}
+b, strong {
+  font-weight: bold;
+}
+.highlight {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+
+/* 2.2 Background Color
+/*----------------------------------------------*/
+.bg-dark {
+    background: var(--dark-color) !important;
+}
+.bg-light {
+    background: var(--light-color) !important;
+}
+.bg-gray-100 {
+  background: var(--gray-color-100) !important;
+}
+.bg-primary {
+    background: var(--primary-color) !important;
+}
+.bg-secondary {
+    background: var(--secondary-color) !important;
+}
+
+/* 2.3 Text Color
+/*----------------------------------------------*/
+.text-primary {
+  color: #12a1c8;
+  /* color: var(--primary-color) !important; */
+}
+.text-color-style {
+  color: #1129a4;
+}
+.section-heading {
+  font-size: 5em;
+  font-weight: 900;
+}
+.body-para-text {
+  font-size: 1.5em;
+}
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+/* 2.4 Border Radius
+/*----------------------------------------------*/
+.border-rounded-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.border-rounded-bottom {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.border-rounded-20 {
+  border-radius: 20px;
+}
+.border-rounded-50 {
+  border-radius: 50px;
+}
+.border-circle {
+   border-radius: 50%;
+}
+
+/* 2.5 Section
+/*----------------------------------------------*/
+
+/* - Section Padding
+--------------------------------------------------------------*/
+.padding-small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.padding-medium {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.padding-large {
+  padding-top: 7em;
+  padding-bottom: 7em;
+}
+.padding-xlarge {
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+/* - Section Margin
+--------------------------------------------------------------*/
+.margin-small {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+.margin-medium {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+.margin-large {
+  margin-top: 7em;
+  margin-bottom: 7em;
+}
+.margin-xlarge {
+  margin-top: 9em;
+  margin-bottom: 9em;
+}
+
+@media only screen and (max-width: 768px) {
+  .margin-small,
+  .margin-medium,
+  .margin-large {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+/* - Section Title
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5 {
+    font-family: var(--heading-font);
+    font-weight: 500;
+    line-height: 1;
+}
+h1.light, h2.light, h3.light, h4.light, h5.light {
+    color: var(--light-color);
+}
+
+/* - Section width
+--------------------------------------------------------------*/
+.container-md {
+    max-width: 1450px;
+}
+.container-lg {
+    max-width: 1760px;
+}
+
+/*--------------------------------------------------------------
+/** 2.5 Buttons
+--------------------------------------------------------------*/
+/* - Button Sizes
+------------------------------------------------------------- */
+.btn.btn-small {
+  padding: 0.8em 2.7em;
+  font-size: 0.85em;
+}
+.btn.btn-medium {
+  padding: 0.8em 2.9em;
+  font-size: 1em;
+}
+.btn.btn-large {
+  padding: 0.8em 4.6em;
+  font-size: 1.6em;
+}
+.btn.btn-subscribe {
+  padding: 1.1em 2.9em;
+  font-size: 1.1em;
+}
+.btn.btn-full {
+  display: block;
+  margin: .85em 0;
+  width: 100%;
+  letter-spacing: 0.12em;
+}
+
+/* - Button Shapes
+------------------------------------------------------------- */
+.btn.btn-rounded,
+.btn.btn-rounded::after {
+  border-radius: 6px;
+}
+.btn.btn-pill,
+.btn.btn-pill::after {
+  border-radius: 2em;
+}
+/* button outline */
+.btn.btn-outline-dark,
+.btn.btn-outline-light,
+.btn.btn-outline-accent {
+  background: transparent;
+  text-shadow: none;
+  box-shadow: none;
+}
+.btn.btn-outline-dark:hover::after,
+.btn.btn-outline-light:hover::after {
+  background-color: transparent;
+}
+.btn.btn-outline-dark {
+  border-color: rgba(0,0,0,0.4);
+  color: var(--dark-color);
+  transition: 0.5s ease-in-out;
+}
+.btn.btn-outline-dark:hover {
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+.btn.btn-outline-light {
+  border-color: rgba(255,255,255,1);
+  color: var(--light-color);
+  transition: 0.5s ease-in-out;
+}
+.btn.btn-outline-light:hover {
+  color: var(--dark-color);
+}
+.btn.btn-outline-gray {
+  background: transparent;
+  border-color: var(--gray-color-200);
+  color: var(--dark-color);
+}
+.btn.btn-outline-gray:hover {
+  color: var(--light-color) !important;
+}
+.btn.btn-outline-accent {
+  background: transparent;
+  border-color: var(--accent-color);
+  color: var(--dark-color);
+}
+.btn.btn-outline-accent:hover {
+  border-color: var(--dark-color);
+  color: var(--dark-color) !important;
+}
+.btn.btn-outline-primary {
+  background: transparent;
+  border-color: var(--primary-color);
+  color: var(--dark-color);
+}
+.btn.btn-outline-primary:hover {
+  background: var(--secondary-color);;
+  border-color: var(--secondary-color);
+  color: var(--light-color) !important;
+}
+
+/* - Buttons Color Scheme
+------------------------------------------------------------- */
+.btn.btn-normal {
+  text-decoration: underline;
+  border: none;
+  font-weight: 800;
+}
+.btn.btn-normal:hover,
+.btn.btn-normal:focus {
+  text-decoration: none;
+  box-shadow: none;
+}
+
+
+/* - Buttons Aligns
+------------------------------------------------------------- */
+.btn-left {
+  text-align: left;
+  display: block;
+}
+.btn-center {
+  text-align: center;
+  display: block;
+}
+.btn-right {
+  text-align: right;
+  display: block;
+}
+
+/*----------------------------------------------*/
+/* 3 CONTENT ELEMENTS */
+/*----------------------------------------------*/
+
+/* 3.1 Text Animation
+------------------------------------------------------------- */
+.text-fading {
+  animation-name: fade-in;
+  animation-duration: 7s;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3.2 Image Hover Effect
+------------------------------------------------------------- */
+.image-hover-effect {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.image-hover-effect img {
+  width: calc(120%);
+  backface-visibility: hidden;
+  vertical-align: top;
+  -webkit-transform: translate(-40px);
+  transform: translate(-40px);
+  transition: all 0.55s linear;
+}
+.image-hover-effect .caption {
+  position: absolute;
+  top: 34%;
+  z-index: 9;
+  width: 100%;
+  -webkit-transform: translateY(-25%);
+  transform: translateY(-25%);
+  padding: 5px 40px;
+  opacity: 0;
+  color: var(--light-color);
+  transition: all 0.55s linear;
+}
+.image-hover-effect a.svg-icon {
+  position: absolute;
+  -webkit-transform: translateX(-55px);
+  transform: translateX(-55px);
+  opacity: 0;
+  bottom: 69px;
+  left: 80px;
+  z-index: 9;
+  width: 52%;
+  color: var(--light-color);
+  background: var(--primary-color);
+  transition: all 0.55s linear;
+}
+.image-hover-effect a.svg-icon:hover {
+  color: var(--light-color);
+}
+/* hover */
+.image-hover-effect:hover img {
+  zoom: 1;
+  opacity: 0.6;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.image-hover-effect:hover .caption {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 1;
+}
+.image-hover-effect:hover a.svg-icon {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 3.2 Navigation Sticky 
+------------------------------------------------------------- */
+nav.nav-bg{
+  /* background: rgba(0,0,0,1); */
+  color: #1129a4;
+  height: 80px;
+  padding: 10px 50px;
+  background-color: #fffffa;
+}
+nav.nav-bg a.nav-link {
+  /* color: var(--light-color) !important; */
+  color: #1129a4;
+}
+
+/*----------------------------------------------*/
+/* 4 SITE STRUCTURE */
+/*----------------------------------------------*/
+
+/* 4.1 Header
+------------------------------------------------------------- */
+.navbar-toggler svg.navbar-icon {
+  width: 40px;
+  height: 40px;
+  fill: var(--primary-color);
+  outline: none;
+}
+
+/* - Offcanvas
+------------------------------------------------------------- */
+#header-nav .offcanvas.show {
+  z-index: 9999;
+  background-color: var(--gray-color-100);
+}
+.offcanvas.show .nav-item a.nav-link,
+#header-nav .offcanvas.show .nav-item a:hover {
+  font-size: 2em;
+  color: var(--dark-color);
+}
+.offcanvas.show .offcanvas-body .navbar-nav {
+  align-items: unset!important;
+  padding-left: 20px;
+}
+
+@media (min-width: 1399px) {
+  #header .navbar-expand-lg {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  #header .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  #header .navbar-expand-lg .navbar-toggler {
+    display: none;
+  }
+}
+
+/* 4.2 Intro
+------------------------------------------------------------- */
+.full-width {
+  width: 100%;
+}
+
+.banner-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.banner-content h1.banner-title {
+  width: 100%;
+  font-size: 16em;
+  font-weight: 900;
+  animation: fade-in 1s;
+  animation-duration: 7s;
+}
+.banner-content p {
+  font-size: 1.3em;
+  width: 80%;
+}
+.swiper-pagination span.swiper-pagination-bullet-active {
+  background: var(--primary-color);
+}
+
+@media (max-width: 991px) {
+  .feature-area .image-holder {
+    display: none;
+ }
+}
+
+@media (max-width: 681px) {
+  .banner-content h1.banner-title {
+    font-size: 3em;
+ }
+ .banner-content p {
+    font-size: 1.1em;
+    width: 80%;
+  }
+}
+
+
+/* 4.3 About Us
+------------------------------------------------------------- */
+#about q {
+  font-size: 1.3em;
+  display: block;
+}
+
+/* 4.4 Yoga Classes
+------------------------------------------------------------- */
+.box-hover:hover .box-body-hover {
+  background: var(--light-color);
+}
+.box-hover:hover h3 {
+  color: var(--primary-color);
+}
+
+/* 4.5 Video
+------------------------------------------------------------- */
+#video-player a.play-btn {
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  color: var(--primary-dim-color);
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  border-radius: 50%;
+}
+#videoModal .modal-dialog {
+  max-width: 980px;
+}
+
+@media only screen and (max-width: 901px) {
+  #video-player img {
+    height: 480px;
+    object-fit: cover;
+  }
+}
+
+/* 4.6 Our Team
+------------------------------------------------------------- */
+.team-member {
+   overflow: hidden;
+   cursor: pointer;
+}
+.team-member .social-links li {
+  position:relative;
+  bottom: 80px;
+  opacity: 0;
+  display:inline-block;
+  margin: 7px;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:var(--secondary-color);
+}
+.team-member .social-links li:hover {
+  background-color:var(--primary-color);
+}
+.team-member .social-links svg {
+  color:var(--light-color);
+  animation-name:rotate-icon;
+}
+.team-member .social-links li:nth-child(1) {
+  transition:1.0s;
+}
+.team-member .social-links li:nth-child(2) {
+  transition:1.2s;
+}
+.team-member .social-links li:nth-child(3) {
+  transition:1.5s;
+}
+.team-member .social-links li:nth-child(4) {
+  transition:1.8s;
+}
+.team-member .social-links li:nth-child(5) {
+  transition:2.4s;
+}
+.team-member:hover > .member-info .social-links li{
+  bottom: 200px;
+  opacity: 1;
+}
+span.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+}
+
+/* 4.7 Subscribe
+------------------------------------------------------------- */
+.newsletter-content input {
+  width: 100%;
+  height: 80px;
+  padding-left: 40px;
+  border: 1px solid var(--gray-color-300);
+}
+.newsletter-content button {
+  top: 2px;
+  right: 0;
+}
+
+@media (max-width: 767px) {
+  .newsletter-content button {
+    top: 87px;
+    width: 100%;
+ }
+}
+
+/* 4.8 Price Table
+------------------------------------------------------------- */
+#price .card h3.card-title {
+  font-size: 2.5em;
+}
+#price .card h3>small {
+  font-size: 40%;
+}
+#price .card ul.price-list {
+  font-size: 1.4em;
+}
+
+/* 4.9 Testimonial
+------------------------------------------------------------- */
+#testimonials .swiper-pagination {
+  bottom: 140px;
+}
+
+/* 4.10 Footer
+------------------------------------------------------------- */
+#footer .footer-image {
+  right: 0;
+  bottom: 0;
+}
+#footer .footer-image img {
+  mix-blend-mode: luminosity;
+}
+#footer ul.menu-list {
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+
+
+/* New styles Start */
+.bg-footer {
+  background-color: white;
+  /* background-color: #12a1c8; */
+  color: #1129a4;
+}
+
+.social-insta-btn {
+  padding: 0.51em 2em;
+  background-color: #1129a4;
+  color: white;
+  border-radius: 8px;
+  display: inline-block;
+  transition: all ease-in-out;
+}
+
+.social-insta-btn:hover {
+  transform: scale(1.12);
+}
+
+
+.card-styles {
+  border: none;
+}
+/* New styles End */
