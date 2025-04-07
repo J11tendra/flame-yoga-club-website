@@ -490,6 +490,45 @@
   </section>
 
 
+  <section id="newsletter" class="padding-large bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="2000">
+          <h2 class="display-5 fw-bold section-heading text-primary">Newsletter</h2>
+          <p class="body-para-text mb-4">
+            Stay updated with our latest events and yoga insights
+          </p>
+          <div class="row">
+            <!-- Newsletter Card 1 -->
+            <div class="col-md-6 mb-4">
+              <div class="card newsletter-card position-relative overflow-hidden" style="cursor: pointer;">
+                <img src="/images/newsletter-1.png" class="card-img-top" alt="Newsletter 1">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center p-0"
+                  style="background: rgba(0,0,0,0.5); display: none;">
+                  <a href="newsletter/YogaClubFirstNewsletter .pdf" download class="btn btn-primary">Download Newsletter
+                    1</a>
+                </div>
+              </div>
+            </div>
+            <!-- Newsletter Card 2 -->
+            <div class="col-md-6 mb-4">
+              <div class="card newsletter-card position-relative overflow-hidden" style="cursor: pointer;">
+                <img src="/images/newsletter-2.png" class="card-img-top" alt="Newsletter 2">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center p-0"
+                  style="background: rgba(0,0,0,0.5); display: none;">
+                  <a href="/newsletter/YogaClubSecondNewsletter .pdf" download class="btn btn-primary">Download
+                    Newsletter 2</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <div class="footer-bottom">
     <div class="copyright bg-footer py-3">
       <p class="text-center">©2025 FLAME Yoga Club</p>
@@ -506,5 +545,13 @@
   <script type="text/javascript" src="js/plugins.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </body>
+<script>
+  document.querySelectorAll('.newsletter-card').forEach(card => {
+    card.addEventListener('click', function () {
+      const overlay = card.querySelector('.card-img-overlay');
+      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
+    });
+  });
+</script>
 
 </html>
