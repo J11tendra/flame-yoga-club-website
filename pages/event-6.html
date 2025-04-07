@@ -38,39 +38,61 @@
             box-sizing: border-box;
         }
 
-
-
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #000;
-            color: white;
-            text-align: center;
-            font-family: Arial, sans-serif;
+            flex-direction: column;
+            /* min-height: 100vh; */
+            background-color: #f5f5f5;
+            padding: 20px;
         }
 
-        .full-screen-image {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .image-collage-container {
+            display: grid;
+            gap: 10px;
+            max-width: 1500px;
+            padding: 10px;
+            margin: 6em 0;
+        }
+
+        .image-collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-collage-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            display: block;
         }
 
-        .message {
-            position: relative;
-            z-index: 1;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+        /* Responsive layout */
+        @media (max-width: 599px) {
+            .image-collage-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 899px) {
+            .image-collage-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) and (max-width: 1199px) {
+            .image-collage-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .image-collage-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
@@ -110,6 +132,9 @@
                             <li class="nav-item pe-4">
                                 <a class="nav-link text-dark" href="/index.html">Our Team</a>
                             </li>
+                            <li class="nav-item pe-4">
+                                <a class="nav-link text-dark" href="/index.html">Blog</a>
+                            </li>
                             <li class="nav-item social-insta-btn">
                                 <a class="fw-bold social-btn-hover"
                                     href="https://www.instagram.com/flameyogaclub?igsh=anA1Z2g4MTU3aDl0">Follow
@@ -123,8 +148,49 @@
         </nav>
     </header>
 
-    <img src="/images/event-6.JPG" alt="Event Background" class="full-screen-image">
-    <div class="message">Strictly no pictures were taken during the event</div>
+    <!-- New big heading and paragraphs before the grid -->
+    <div class="content-intro" style="text-align: center; margin-top: 120px;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px; padding: 0 40px;" class="text-primary">Finding Calm Amid Chaos:
+            Tratak and Pranayama Workshop
+        </h1>
+        <p style="font-size: 1rem; margin-bottom: 10px;  padding: 0 40px;">On the 2nd of December, the FLAME Yoga Club
+            hosted a Tratak and Pranayama workshop, offering a welcome respite for
+            students amid the pressures of exam season. Led by President Sharbani, the session provided techniques to
+            enhance
+            relaxation, focus, and overall well-being.</br></br>
+            The workshop began with gentle neck stretches to release tension and prepare participants for the exercises.
+            Moving into
+            Tratak, participants engaged in eye-focused practices to improve concentration and eye health, such as
+            focusing on a
+            single point and practicing deliberate eye movements. These exercises helped participants reconnect with
+            their inner
+            calm and reduce eye strain.</br></br>
+            The session then transitioned into Pranayama, with a series of breathing exercises designed to cultivate
+            mindfulness and
+            energy. From balanced equal breathing to invigorating fast breaths and soothing diaphragmatic techniques,
+            each practice
+            guided participants toward relaxation and deeper awareness.</br></br>
+            By the end of the workshop, attendees felt refreshed and free from study-related worries, leaving with a
+            sense of calm
+            and tools for ongoing stress management. The Tratak and Pranayama workshop highlighted yoga’s transformative
+            power,
+            successfully promoting physical and mental wellness within the university community.
+
+        </p>
+    </div>
+
+    <div class="image-collage-container">
+        <div class="image-collage-item"><img src="/images/breath-1.jpg" alt="Image 1"></div>
+        <div class="image-collage-item"><img src="/images/breath-2.jpg" alt="Image 2"></div>
+        <div class="image-collage-item"><img src="/images/breath-3.jpg" alt="Image 3"></div>
+        <div class="image-collage-item"><img src="/images/breath-4.jpg" alt="Image 4"></div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="copyright bg-footer py-3">
+            <p class="text-center">©2025 FLAME Yoga Club</p>
+        </div>
+    </div>
 
 
     <script src="js/jquery-1.11.0.min.js"></script>

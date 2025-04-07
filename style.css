@@ -695,6 +695,9 @@ span.swiper-pagination-bullet {
   border-top: 1px solid rgba(255,255,255,0.5);
 }
 
+.footer-bottom {
+  width: 100%;
+}
 
 
 /* New styles Start */
