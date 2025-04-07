@@ -478,6 +478,10 @@ nav.nav-bg a.nav-link {
   outline: none;
 }
 
+.navbar-brand img {
+  width: 64px;
+}
+
 /* - Offcanvas
 ------------------------------------------------------------- */
 #header-nav .offcanvas.show {
