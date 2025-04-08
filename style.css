@@ -571,6 +571,14 @@ nav.nav-bg a.nav-link {
   display: block;
 }
 
+@media only screen and (min-width: 1200px) {
+  #about {
+    margin-top: 100px;
+  }
+  
+}
+
+
 /* 4.4 Yoga Classes
 ------------------------------------------------------------- */
 .box-hover:hover .box-body-hover {
