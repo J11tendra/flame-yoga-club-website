@@ -752,3 +752,13 @@ span.swiper-pagination-bullet {
   color: #12a1c8;
 } */
 /* New styles End */
+
+#newsletter .full-vid {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* #newsletter .newsletter-card {
+  width: 100%;
+  margin: 0 auto;
+} */
