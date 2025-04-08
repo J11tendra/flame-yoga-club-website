@@ -456,8 +456,8 @@ h1.light, h2.light, h3.light, h4.light, h5.light {
 nav.nav-bg{
   /* background: rgba(0,0,0,1); */
   color: #1129a4;
-  height: 80px;
-  padding: 10px 50px;
+  /* height: 80px; */
+  /* padding: 10px 50px; */
   background-color: #fffffa;
 }
 nav.nav-bg a.nav-link {
@@ -478,9 +478,15 @@ nav.nav-bg a.nav-link {
   outline: none;
 }
 
-.navbar-brand img {
-  width: 64px;
+@media (max-width: 600px) {
+  .navbar-brand img {  
+    width: 64px;
+  }
 }
+
+.navbar-brand img {  
+    width: 92px;
+  }
 
 /* - Offcanvas
 ------------------------------------------------------------- */
