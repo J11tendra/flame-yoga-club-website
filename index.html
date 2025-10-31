@@ -1,626 +1,1051 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>FLAME Yoga Club</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="aos/aos.css" />
+    <link href="css/date-time-picker-component.min.css" rel="stylesheet" />
 
-<head>
-  <title>FLAME Yoga Club</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link rel="stylesheet" type="text/css" href="aos/aos.css">
-  <link href="css/date-time-picker-component.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Marcellus&display=swap"
-    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-
-  <!-- script
+    <!-- script
     ================================================== -->
-  <script src="js/modernizr.js"></script>
-</head>
+    <script src="js/modernizr.js"></script>
+  </head>
 
-<body>
+  <body>
+    <!-- Video Popup -->
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <svg class="bi" width="40" height="40">
+                <use xlink:href="#close-sharp"></use>
+              </svg>
+            </button>
+            <div class="ratio ratio-16x9">
+              <iframe
+                class="embed-responsive-item"
+                id="video"
+                allowscriptaccess="always"
+                allow="autoplay"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Video Popup -->
-  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <svg class="bi" width="40" height="40">
-              <use xlink:href="#close-sharp"></use>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="youtube"
+        viewBox="0 0 24 24"
+      >
+        <g
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path d="M0 0h24v24H0z" />
+          <path
+            fill="currentColor"
+            d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4z"
+          />
+        </g>
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="facebook"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z"
+        />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="skype" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M13.005 18.423a2 2 0 0 1 1.237.207a3.25 3.25 0 0 0 4.389-4.389a2 2 0 0 1-.207-1.237a6.5 6.5 0 0 0-7.427-7.427A2 2 0 0 1 9.76 5.37a3.25 3.25 0 0 0-4.389 4.39a2 2 0 0 1 .207 1.237a6.5 6.5 0 0 0 7.427 7.427ZM12.001 20.5a8.5 8.5 0 0 1-8.4-9.81a5.25 5.25 0 0 1 7.09-7.09a8.5 8.5 0 0 1 9.71 9.71a5.25 5.25 0 0 1-7.09 7.09c-.427.066-.865.1-1.31.1Zm.053-3.5C9.252 17 8 15.62 8 14.586c0-.532.39-.902.928-.902c1.2 0 .887 1.725 3.125 1.725c1.143 0 1.776-.624 1.776-1.261c0-.384-.188-.808-.943-.995l-2.49-.624c-2.006-.504-2.37-1.592-2.37-2.612C8.027 7.797 10.019 7 11.89 7c1.72 0 3.755.956 3.755 2.228c0 .545-.479.863-1.011.863c-1.023 0-.835-1.418-2.9-1.418c-1.023 0-1.596.462-1.596 1.126c0 .663.803.876 1.502 1.035l1.836.409C15.49 11.695 16 12.876 16 13.989C16 15.713 14.675 17 12.015 17h.038Z"
+        />
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="instagram"
+        viewBox="0 0 256 256"
+      >
+        <path
+          fill="currentColor"
+          d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"
+        />
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="twitter"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"
+        />
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="navbar-icon"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="1.5"
+          d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16"
+        />
+      </symbol>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="arrow-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M10.159 10.72a.75.75 0 1 0 1.06 1.06l3.25-3.25L15 8l-.53-.53l-3.25-3.25a.75.75 0 0 0-1.061 1.06l1.97 1.97H1.75a.75.75 0 1 0 0 1.5h10.379l-1.97 1.97Z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+    </svg>
+
+    <header id="header" class="site-header bg-light fixed-top">
+      <nav id="header-nav" class="navbar navbar-expand-lg py-3">
+        <div class="container-lg">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.svg" class="logo" alt="brand" />
+          </a>
+          <button
+            class="navbar-toggler d-flex d-lg-none order-3 p-2 shadow-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#bdNavbar"
+            aria-controls="bdNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <svg class="navbar-icon">
+              <use xlink:href="#navbar-icon"></use>
             </svg>
           </button>
-          <div class="ratio ratio-16x9">
-            <iframe class="embed-responsive-item" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="bdNavbar"
+            aria-labelledby="bdNavbarOffcanvasLabel"
+          >
+            <div class="offcanvas-header px-4 pb-0">
+              <button
+                type="button"
+                class="btn-close btn-close-black"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+                data-bs-target="#bdNavbar"
+              ></button>
+            </div>
+            <div
+              class="offcanvas-body"
+              data-aos="fade-down"
+              data-aos-duration="2000"
+            >
+              <ul
+                id="navbar"
+                class="navbar-nav justify-content-lg-end align-items-center flex-grow-1"
+              >
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#intro">Home</a>
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#about">About Us</a>
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#yoga-class"
+                    >Past Events</a
+                  >
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#our-team">Our Team</a>
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#newsletter"
+                    >Newsletter</a
+                  >
+                </li>
+                <li class="nav-item pe-4">
+                  <a class="nav-link text-dark" href="#highlights"
+                    >Highlights</a
+                  >
+                </li>
+                <li class="nav-item social-insta-btn">
+                  <a
+                    class="fw-bold social-btn-hover"
+                    href="https://www.instagram.com/flameyogaclub?igsh=anA1Z2g4MTU3aDl0"
+                    >Follow Us</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </nav>
+    </header>
 
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 24 24">
-      <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M0 0h24v24H0z" />
-        <path fill="currentColor" d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4z" />
-      </g>
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="skype" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M13.005 18.423a2 2 0 0 1 1.237.207a3.25 3.25 0 0 0 4.389-4.389a2 2 0 0 1-.207-1.237a6.5 6.5 0 0 0-7.427-7.427A2 2 0 0 1 9.76 5.37a3.25 3.25 0 0 0-4.389 4.39a2 2 0 0 1 .207 1.237a6.5 6.5 0 0 0 7.427 7.427ZM12.001 20.5a8.5 8.5 0 0 1-8.4-9.81a5.25 5.25 0 0 1 7.09-7.09a8.5 8.5 0 0 1 9.71 9.71a5.25 5.25 0 0 1-7.09 7.09c-.427.066-.865.1-1.31.1Zm.053-3.5C9.252 17 8 15.62 8 14.586c0-.532.39-.902.928-.902c1.2 0 .887 1.725 3.125 1.725c1.143 0 1.776-.624 1.776-1.261c0-.384-.188-.808-.943-.995l-2.49-.624c-2.006-.504-2.37-1.592-2.37-2.612C8.027 7.797 10.019 7 11.89 7c1.72 0 3.755.956 3.755 2.228c0 .545-.479.863-1.011.863c-1.023 0-.835-1.418-2.9-1.418c-1.023 0-1.596.462-1.596 1.126c0 .663.803.876 1.502 1.035l1.836.409C15.49 11.695 16 12.876 16 13.989C16 15.713 14.675 17 12.015 17h.038Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
-      <path fill="currentColor"
-        d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 24 24">
-      <path fill="currentColor"
-        d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
-        d="M4 7h3m13 0h-9m9 10h-3M4 17h9m-9-5h16" />
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-left" viewBox="0 0 16 16">
-      <path fill="currentColor" fill-rule="evenodd"
-        d="M10.159 10.72a.75.75 0 1 0 1.06 1.06l3.25-3.25L15 8l-.53-.53l-3.25-3.25a.75.75 0 0 0-1.061 1.06l1.97 1.97H1.75a.75.75 0 1 0 0 1.5h10.379l-1.97 1.97Z"
-        clip-rule="evenodd" />
-    </symbol>
-  </svg>
-
-  <header id="header" class="site-header bg-light fixed-top">
-    <nav id="header-nav" class="navbar navbar-expand-lg py-3">
+    <section
+      id="intro"
+      class="padding-large position-relative overflow-hidden"
+      style="
+        background-image: url(images/hero-arushi.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 100%;
+        min-height: 85vh;
+        z-index: 123;
+      "
+    >
       <div class="container-lg">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.svg" class="logo" alt="brand">
-        </a>
-        <button class="navbar-toggler d-flex d-lg-none order-3 p-2 shadow-none" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-          <svg class="navbar-icon">
-            <use xlink:href="#navbar-icon"></use>
-          </svg>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-          <div class="offcanvas-header px-4 pb-0">
-            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-              data-bs-target="#bdNavbar"></button>
-          </div>
-          <div class="offcanvas-body" data-aos="fade-down" data-aos-duration="2000">
-            <ul id="navbar" class="navbar-nav justify-content-lg-end align-items-center flex-grow-1">
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#intro">Home</a>
-              </li>
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#about">About Us</a>
-              </li>
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#yoga-class">Past Events</a>
-              </li>
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#our-team">Our Team</a>
-              </li>
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#newsletter">Newsletter</a>
-              </li>
-              <li class="nav-item pe-4">
-                <a class="nav-link text-dark" href="#highlights">Highlights</a>
-              </li>
-              <li class="nav-item social-insta-btn">
-                <a class="fw-bold social-btn-hover"
-                  href="https://www.instagram.com/flameyogaclub?igsh=anA1Z2g4MTU3aDl0">Follow
-                  Us</a>
-              </li>
-            </ul>
-
+        <div class="row justify-content-lg-between justify-content-between">
+          <div class="full-width col-lg-6 col-md-12 d-flex align-items-center">
+            <div class="banner-content pb-5">
+              <h1
+                class="banner-title mb-4 text-color-style text-fading text-center"
+              >
+                FLAME<br /><span class="text-primary">Yoga Club</span>
+              </h1>
+            </div>
           </div>
         </div>
       </div>
-    </nav>
-  </header>
+    </section>
 
-  <section id="intro" class="padding-large position-relative overflow-hidden"
-    style="background-image: url(images/hero-arushi.svg); background-repeat: no-repeat; background-position: center; background-size: contain; width: 100%; min-height: 85vh; z-index: 123;">
-    <div class="container-lg">
-      <div class="row justify-content-lg-between justify-content-between">
+    <section id="about" class="overflow-hidden">
+      <div class="container-lg">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div
+              class="image-holder"
+              data-aos="zoom-in"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                max-width: 600px;
+                margin: auto;
+              "
+            >
+              <img
+                src="images/aarushi-about.png"
+                alt="yoga"
+                style="
+                  width: 100%;
+                  height: auto;
+                  display: block;
+                  border-radius: 10px;
+                "
+              />
+            </div>
+          </div>
 
-        <div class="full-width col-lg-6 col-md-12 d-flex align-items-center">
-          <div class="banner-content pb-5">
-            <h1 class="banner-title mb-4 text-color-style text-fading text-center">FLAME<br /><span
-                class="text-primary">Yoga Club</span>
-            </h1>
-
+          <div class="col-lg-6">
+            <div
+              class="about-us-content"
+              data-aos="fade-left"
+              data-aos-duration="2000"
+            >
+              <h2 class="display-4 text-primary section-heading">About Us</h2>
+              <p class="body-para-text">
+                The Yoga Club at FLAME University has evolved from a
+                recreational community into a dynamic, competitive (individual)
+                club, reflecting our commitment to deeper practice and personal
+                growth. While we now participate in individual-level
+                competitions, we continue to embrace the inclusive spirit of
+                yoga through a wide range of events—masterclasses, workshops,
+                themed sessions, and wellness initiatives that are open to all.
+              </p>
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about" class="overflow-hidden">
-    <div class="container-lg">
-      <div class="row align-items-center">
-
-        <div class="col-lg-6">
-          <div class="image-holder" data-aos="zoom-in"
-            style="display: flex; justify-content: center; align-items: center; width: 100%; max-width: 600px; margin: auto;">
-            <img src="images/aarushi-about.png" alt="yoga"
-              style="width: 100%; height: auto; display: block; border-radius: 10px;">
+    <section id="yoga-class" class="padding-large overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="display-header mb-5">
+            <h2 class="display-5 fw-bold section-heading text-primary">
+              Past Events
+            </h2>
           </div>
-        </div>
 
-        <div class="col-lg-6">
-          <div class="about-us-content" data-aos="fade-left" data-aos-duration="2000">
-            <h2 class="display-4 text-primary section-heading">About Us</h2>
-            <p class="body-para-text">The Yoga Club at FLAME University has evolved from a recreational community into a
-              dynamic, competitive (individual)
-              club, reflecting our commitment to deeper practice and personal growth. While we now participate in
-              individual-level
-              competitions, we continue to embrace the inclusive spirit of yoga through a wide range of
-              events—masterclasses,
-              workshops, themed sessions, and wellness initiatives that are open to all.
+          <!--  -->
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/try1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Yoga Tryouts`25</p>
+                </figcaption>
+                <a href="/pages/event-13.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="truedivanji aai mataji"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-13.html">Yoga Tryouts`25</a>
+                </h3>
+              </div>
+            </div>
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img
+                  src="images/clbf_1.jpg"
+                  alt="yoga classes"
+                />
+                <figcaption class="caption text-center">
+                  <p>Club Fair 2025-26</p>
+                </figcaption>
+                <a href="/pages/event-14.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-14.html">Club Fair 2025-26</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+              >
+              <figure class="bg-black mb-0">
+                <img src="images/yoga-3.png" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>International Yoga Day</p>
+                </figcaption>
+                <a href="/pages/event-1.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-1.html">International Yoga Day</a>
+                </h3>
+              </div>
+            </div>
+
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/arm-1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Arm Strengthening Workshop</p>
+                </figcaption>
+                <a href="/pages/event-4.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svgNaman Bhawnani
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-4.html">Arm Strengthening Workshop</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover image-hover-effect large-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/club-fair-1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Sports Club Fair`24</p>
+                </figcaption>
+                <a href="/pages/event-2.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-2.html">Sports Club Fair`24</a>
+                </h3>
+              </div>
+            </div>
+
+            <div
+              class="card card-styles box-hover image-hover-effect large-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/interhouse-1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>InterHouse Yoga</p>
+                </figcaption>
+                <a href="/pages/event-5.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-5.html">InterHouse Yoga</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/master-1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Term 1 Yoga Master class</p>
+                </figcaption>
+                <a href="/pages/event-3.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event.html">Term 1 Yoga Master class</a>
+                </h3>
+              </div>
+            </div>
+
+            <div
+              class="card card-styles box-hover image-hover-effect large-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/breath-3.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Tratak and Pranayama Workshop</p>
+                </figcaption>
+                <a href="/pages/event-6.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-6.html"
+                    >Tratak and Pranayama Workshop</a
+                  >
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/master-class-2.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Term 2 Yoga Masterclass</p>
+                </figcaption>
+                <a href="/pages/event-11.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-11.html">Term 2 Yoga Masterclass</a>
+                </h3>
+              </div>
+            </div>
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/period-3.png" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Yoga Club x PI</p>
+                </figcaption>
+                <a href="/pages/event-9.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-9.html">Yoga Club x PI</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/master-1.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Kurukshetra`s Masterclass</p>
+                </figcaption>
+                <a href="/pages/event-7.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-7.html">Kurukshetra`s Masterclass</a>
+                </h3>
+              </div>
+            </div>
+            <div
+              class="card card-styles box-hover image-hover-effect large-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/bal-1.png" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Yoga Club x TSP</p>
+                </figcaption>
+                <a href="/pages/event-10.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-10.html">Yoga Club x TSP</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 mb-4 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img src="images/kuru-3.jpg" alt="yoga classes" />
+                <figcaption class="caption text-center">
+                  <p>Kurukshetra`s Competition</p>
+                </figcaption>
+                <a href="/pages/event-8.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-8.html">Kurukshetra`s Competition</a>
+                </h3>
+              </div>
+            </div>
+            <div
+              class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4"
+            >
+              <figure class="bg-black mb-0">
+                <img
+                  src="images/upcoming-masterclass.jpeg"
+                  alt="yoga classes"
+                />
+                <figcaption class="caption text-center">
+                  <p>Alumni Masterclass</p>
+                </figcaption>
+                <a href="/pages/event-12.html" class="svg-icon p-2 text-center">
+                  <span>See More</span>
+                  <svg
+                    class="arrow-left text-primary-500"
+                    width="25"
+                    height="20"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#arrow-left"></use>
+                  </svg>
+                </a>
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title text-center">
+                  <a href="/pages/event-12.html">Alumni Masterclass</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="our-team"
+      class="padding-large"
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="display-header mb-5">
+            <h2 class="display-5 fw-bold section-heading text-primary">
+              Our Team
+            </h2>
+          </div>
+
+          <div class="team-content">
+            <div
+              class="swiper team-swiper swiper-initialized swiper-horizontal swiper-backface-hidden"
+            >
+              <div class="swiper-wrapper pb-5">
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 3"
+                  style="width: 643px; margin-right: 10px"
+                >
+                  <div class="team-member box-hover">
+                    <div class="image-holder">
+                      <img
+                        src="images/sharbani.jpg"
+                        alt="team member"
+                        class="border-rounded-top img-fluid"
+                      />
+                    </div>
+                    <div
+                      class="member-info box-body-hover text-center border-rounded-bottom pt-4"
+                    >
+                      <h3 class="fs-4">Sharbani Ghosh Roy</h3>
+                      <span class="fs-6">President</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 3"
+                  style="width: 643px; margin-right: 10px"
+                >
+                  <div class="team-member box-hover">
+                    <div class="image-holder">
+                      <img
+                        src="images/naman.jpg"
+                        alt="team member"
+                        class="border-rounded-top img-fluid"
+                      />
+                    </div>
+                    <div
+                      class="member-info box-body-hover text-center border-rounded-bottom pt-4"
+                    >
+                      <h3 class="fs-4">Naman Bhawnani</h3>
+                      <span class="fs-6">Vice President</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 3"
+                  style="width: 643px; margin-right: 10px"
+                >
+                  <div class="team-member box-hover">
+                    <div class="image-holder">
+                      <img
+                        src="images/adit.jpg"
+                        alt="team member"
+                        class="border-rounded-top img-fluid"
+                      />
+                    </div>
+                    <div
+                      class="member-info box-body-hover text-center border-rounded-bottom pt-4"
+                    >
+                      <h3 class="fs-4">Adit Jain</h3>
+                      <span class="fs-6">Secretary</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 3"
+                  style="width: 643px; margin-right: 10px"
+                >
+                  <div class="team-member box-hover">
+                    <div class="image-holder">
+                      <img
+                        src="images/shreya.jpg"
+                        alt="team member"
+                        class="border-rounded-top img-fluid"
+                      />
+                    </div>
+                    <div
+                      class="member-info box-body-hover text-center border-rounded-bottom pt-4"
+                    >
+                      <h3 class="fs-4">Shreya Kaleeswaran</h3>
+                      <span class="fs-6">Treasurer</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="swiper-slide swiper-slide-active"
+                  role="group"
+                  aria-label="1 / 3"
+                  style="width: 643px; margin-right: 10px"
+                >
+                  <div class="team-member box-hover">
+                    <div class="image-holder">
+                      <img
+                        src="images/Navya.jpg"
+                        alt="team member"
+                        class="border-rounded-top img-fluid"
+                      />
+                    </div>
+                    <div
+                      class="member-info box-body-hover text-center border-rounded-bottom pt-4"
+                    >
+                      <h3 class="fs-4">Navya Jain</h3>
+                      <span class="fs-6">PR Head</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <!-- team-content -->
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="padding-large bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div
+            class="col-lg-8 text-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h2
+              class="display-5 fw-bold section-heading text-primary newsletter-heading"
+            >
+              Newsletter
+            </h2>
+            <p class="body-para-text mb-4">
+              Stay updated with our latest events and yoga insights
             </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="yoga-class" class="padding-large overflow-hidden">
-    <div class="container">
-      <div class="row">
-
-        <div class="display-header mb-5">
-          <h2 class="display-5 fw-bold section-heading text-primary">Past Events</h2>
-        </div>
-
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/yoga-3.png" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>International Yoga Day</p>
-              </figcaption>
-              <a href="/pages/event-1.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-1.html">International Yoga Day</a>
-              </h3>
-            </div>
-          </div>
-
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/arm-1.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Arm Strengthening
-                  Workshop</p>
-              </figcaption>
-              <a href="/pages/event-4.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-4.html">Arm Strengthening
-                  Workshop</a>
-              </h3>
-            </div>
-          </div>
-
-
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-          <div class="card card-styles box-hover image-hover-effect large-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/club-fair-1.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Sports Club Fair`24</p>
-              </figcaption>
-              <a href="/pages/event-2.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-2.html">Sports Club Fair`24</a></h3>
-            </div>
-          </div>
-
-
-          <div class="card card-styles box-hover image-hover-effect large-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/interhouse-1.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>InterHouse Yoga</p>
-              </figcaption>
-              <a href="/pages/event-5.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-5.html">InterHouse Yoga</a></h3>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/master-1.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Term 1 Yoga Master class</p>
-              </figcaption>
-              <a href="/pages/event-3.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event.html">Term 1 Yoga Master class</a>
-              </h3>
-            </div>
-          </div>
-
-
-          <div class="card card-styles box-hover image-hover-effect large-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/breath-3.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Tratak and Pranayama Workshop</p>
-              </figcaption>
-              <a href="/pages/event-6.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-6.html">Tratak and Pranayama Workshop</a></h3>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/master-class-2.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Term 2 Yoga Masterclass</p>
-              </figcaption>
-              <a href="/pages/event-11.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-11.html">Term 2 Yoga Masterclass</a>
-              </h3>
-            </div>
-          </div>
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/period-3.png" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Yoga Club x PI</p>
-              </figcaption>
-              <a href="/pages/event-9.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-9.html">Yoga Club x PI</a>
-              </h3>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/master-1.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Kurukshetra`s Masterclass</p>
-              </figcaption>
-              <a href="/pages/event-7.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-7.html">Kurukshetra`s Masterclass</a>
-              </h3>
-            </div>
-          </div>
-          <div class="card card-styles box-hover image-hover-effect large-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/bal-1.png" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Yoga Club x TSP</p>
-              </figcaption>
-              <a href="/pages/event-10.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-10.html">Yoga Club x TSP</a></h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/kuru-3.jpg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Kurukshetra`s Competition</p>
-              </figcaption>
-              <a href="/pages/event-8.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-8.html">Kurukshetra`s Competition</a>
-              </h3>
-            </div>
-          </div>
-          <div class="card card-styles box-hover mb-4 image-hover-effect small-box rounded-4">
-            <figure class="bg-black mb-0">
-              <img src="images/upcoming-masterclass.jpeg" alt="yoga classes">
-              <figcaption class="caption text-center">
-                <p>Alumni Masterclass</p>
-              </figcaption>
-              <a href="/pages/event-12.html" class="svg-icon p-2 text-center">
-                <span>See More</span>
-                <svg class="arrow-left text-primary-500" width="25" height="20" aria-hidden="true">
-                  <use xlink:href="#arrow-left"></use>
-                </svg>
-              </a>
-            </figure>
-            <div class="card-body">
-              <h3 class="card-title text-center"><a href="/pages/event-12.html">Alumni Masterclass</a>
-              </h3>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <section id="our-team" class="padding-large" data-aos="zoom-in-up" data-aos-easing="ease-out-cubic"
-    data-aos-duration="2000">
-    <div class="container">
-      <div class="row">
-
-        <div class="display-header mb-5">
-          <h2 class="display-5 fw-bold section-heading text-primary">Our Team</h2>
-        </div>
-
-        <div class="team-content">
-
-          <div class="swiper team-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
-
-            <div class="swiper-wrapper pb-5">
-
-              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
-                style="width: 643px; margin-right: 10px;">
-                <div class="team-member box-hover">
-                  <div class="image-holder">
-                    <img src="images/sharbani.jpg" alt="team member" class="border-rounded-top img-fluid">
-                  </div>
-                  <div class="member-info box-body-hover text-center border-rounded-bottom pt-4">
-                    <h3 class="fs-4">Sharbani Ghosh Roy</h3>
-                    <span class="fs-6">President</span>
+            <div class="row">
+              <!-- Newsletter Card 1 -->
+              <div class="col-md-6 mb-4">
+                <div
+                  class="card newsletter-card position-relative overflow-hidden"
+                  style="cursor: pointer"
+                >
+                  <img
+                    src="/images/newsletter-1.png"
+                    class="card-img-top"
+                    alt="Newsletter 1"
+                  />
+                  <div
+                    class="card-img-overlay d-flex align-items-center justify-content-center p-0"
+                    style="background: rgba(0, 0, 0, 0.5); display: none"
+                  >
+                    <a
+                      href="newsletter/YogaClubFirstNewsletter .pdf"
+                      download
+                      class="btn btn-primary"
+                      >Download Newsletter 1</a
+                    >
                   </div>
                 </div>
               </div>
-
-              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
-                style="width: 643px; margin-right: 10px;">
-                <div class="team-member box-hover">
-                  <div class="image-holder">
-                    <img src="images/arushi.jpg" alt="team member" class="border-rounded-top img-fluid">
+              <!-- Newsletter Card 2 -->
+              <div class="col-md-6 mb-4">
+                <div
+                  class="card newsletter-card position-relative overflow-hidden"
+                  style="cursor: pointer"
+                >
+                  <img
+                    src="/images/newsletter-2.png"
+                    class="card-img-top"
+                    alt="Newsletter 2"
+                  />
+                  <div
+                    class="card-img-overlay d-flex align-items-center justify-content-center p-0"
+                    style="background: rgba(0, 0, 0, 0.5); display: none"
+                  >
+                    <a
+                      href="/newsletter/YogaClubSecondNewsletter .pdf"
+                      download
+                      class="btn btn-primary"
+                      >Download Newsletter 2</a
+                    >
                   </div>
-                  <div class="member-info box-body-hover text-center border-rounded-bottom pt-4">
-                    <h3 class="fs-4">Aarushi Bishnoi</h3>
-                    <span class="fs-6">Vice President</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
-                style="width: 643px; margin-right: 10px;">
-                <div class="team-member box-hover">
-                  <div class="image-holder">
-                    <img src="images/adit.jpg" alt="team member" class="border-rounded-top img-fluid">
-                  </div>
-                  <div class="member-info box-body-hover text-center border-rounded-bottom pt-4">
-                    <h3 class="fs-4">Adit Jain</h3>
-                    <span class="fs-6">Secretary</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
-                style="width: 643px; margin-right: 10px;">
-                <div class="team-member box-hover">
-                  <div class="image-holder">
-                    <img src="images/shreya.jpg" alt="team member" class="border-rounded-top img-fluid">
-                  </div>
-                  <div class="member-info box-body-hover text-center border-rounded-bottom pt-4">
-                    <h3 class="fs-4">Shreya Kaleeswaran</h3>
-                    <span class="fs-6">Treasurer</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3"
-                style="width: 643px; margin-right: 10px;">
-                <div class="team-member box-hover">
-                  <div class="image-holder">
-                    <img src="images/naman.jpg" alt="team member" class="border-rounded-top img-fluid">
-                  </div>
-                  <div class="member-info box-body-hover text-center border-rounded-bottom pt-4">
-                    <h3 class="fs-4">Naman Bhawnani</h3>
-                    <span class="fs-6">PR Head</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-        <!-- team-content -->
-      </div>
-    </div>
-  </section>
-
-
-  <section id="newsletter" class="padding-large bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="2000">
-          <h2 class="display-5 fw-bold section-heading text-primary newsletter-heading">Newsletter</h2>
-          <p class="body-para-text mb-4">
-            Stay updated with our latest events and yoga insights
-          </p>
-          <div class="row">
-            <!-- Newsletter Card 1 -->
-            <div class="col-md-6 mb-4">
-              <div class="card newsletter-card position-relative overflow-hidden" style="cursor: pointer;">
-                <img src="/images/newsletter-1.png" class="card-img-top" alt="Newsletter 1">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center p-0"
-                  style="background: rgba(0,0,0,0.5); display: none;">
-                  <a href="newsletter/YogaClubFirstNewsletter .pdf" download class="btn btn-primary">Download Newsletter
-                    1</a>
-                </div>
-              </div>
-            </div>
-            <!-- Newsletter Card 2 -->
-            <div class="col-md-6 mb-4">
-              <div class="card newsletter-card position-relative overflow-hidden" style="cursor: pointer;">
-                <img src="/images/newsletter-2.png" class="card-img-top" alt="Newsletter 2">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center p-0"
-                  style="background: rgba(0,0,0,0.5); display: none;">
-                  <a href="/newsletter/YogaClubSecondNewsletter .pdf" download class="btn btn-primary">Download
-                    Newsletter 2</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <section id="highlights" class="padding-large bg-light">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="2000">
-          <h2 class="display-5 fw-bold section-heading text-primary newsletter-heading">Hightlights</h2>
-          <p class="body-para-text mb-4">
-            FLAME Yoga Club Highlight Video 2024-25
-          </p>
-          <div class="row">
-            <!-- Newsletter Card 1 -->
-            <div class="col-md-6 mb-4 full-vid">
-              <div class="card newsletter-card position-relative overflow-hidden" style="cursor: pointer;">
-                <img src="/images/highlight.jpeg" class="card-img-top" alt="Newsletter 1">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center p-0"
-                  style="background: rgba(0,0,0,0.1); display: none;">
-                  <a href="https://drive.google.com/file/d/1o1PTiaRrD7frBqj9eZ_GiwsOCeyyavD1/view?usp=drivesdk"
-                    target="_blank" class="btn btn-primary">Click to
-                    Preview</a>
+    <section id="highlights" class="padding-large bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div
+            class="col-lg-8 text-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h2
+              class="display-5 fw-bold section-heading text-primary newsletter-heading"
+            >
+              Hightlights
+            </h2>
+            <p class="body-para-text mb-4">
+              FLAME Yoga Club Highlight Video 2024-25
+            </p>
+            <div class="row">
+              <!-- Newsletter Card 1 -->
+              <div class="col-md-6 mb-4 full-vid">
+                <div
+                  class="card newsletter-card position-relative overflow-hidden"
+                  style="cursor: pointer"
+                >
+                  <img
+                    src="/images/highlight.jpeg"
+                    class="card-img-top"
+                    alt="Newsletter 1"
+                  />
+                  <div
+                    class="card-img-overlay d-flex align-items-center justify-content-center p-0"
+                    style="background: rgba(0, 0, 0, 0.1); display: none"
+                  >
+                    <a
+                      href="https://drive.google.com/file/d/1o1PTiaRrD7frBqj9eZ_GiwsOCeyyavD1/view?usp=drivesdk"
+                      target="_blank"
+                      class="btn btn-primary"
+                      >Click to Preview</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="footer-bottom">
+      <div class="copyright bg-footer py-3">
+        <p class="text-center">©2025 FLAME Yoga Club</p>
+      </div>
     </div>
-  </section>
 
-
-
-  <div class="footer-bottom">
-    <div class="copyright bg-footer py-3">
-      <p class="text-center">©2025 FLAME Yoga Club</p>
-    </div>
-  </div>
-
-
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="aos/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/plugins.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
-</body>
-<script>
-  document.querySelectorAll('.newsletter-card').forEach(card => {
-    card.addEventListener('click', function () {
-      const overlay = card.querySelector('.card-img-overlay');
-      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="aos/aos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+  <script>
+    document.querySelectorAll(".newsletter-card").forEach((card) => {
+      card.addEventListener("click", function () {
+        const overlay = card.querySelector(".card-img-overlay");
+        overlay.style.display =
+          overlay.style.display === "none" || overlay.style.display === ""
+            ? "flex"
+            : "none";
+      });
     });
-  });
-</script>
-
+  </script>
 </html>
