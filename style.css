@@ -767,3 +767,138 @@ span.swiper-pagination-bullet {
   width: 100%;
   margin: 0 auto;
 } */
+
+
+/* Past Events - modern masonry */
+.past-events-masonry {
+  column-count: 3;
+  column-gap: 18px;
+}
+
+@media (max-width: 992px) {
+  .past-events-masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .past-events-masonry {
+    column-count: 1;
+  }
+}
+
+/* Each card must not break across columns */
+.past-event-card {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+
+  margin: 0 0 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 12px 34px rgba(16, 24, 40, 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.past-event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgba(16, 24, 40, 0.14);
+}
+
+.past-event-media {
+  position: relative;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+
+/* Let image decide height => more “masonry” feel */
+.past-event-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 320ms ease;
+}
+
+.past-event-card:hover .past-event-media img {
+  transform: scale(1.07);
+}
+
+/* modern overlay */
+.past-event-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.18) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.past-event-overlay .title {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  max-width: 70%;
+}
+
+.past-event-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(7px);
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.past-event-cta:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.past-event-body {
+  padding: 14px 16px 16px;
+}
+
+.past-event-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.past-event-body a {
+  text-decoration: none;
+}
+
+.past-event-body a:hover {
+  text-decoration: underline;
+}
+
+.past-event-meta {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  opacity: 0.75;
+}
